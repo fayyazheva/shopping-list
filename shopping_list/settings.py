@@ -79,18 +79,19 @@ WSGI_APPLICATION = 'shopping_list.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
 if PRODUCTION:
     DATABASES = {
         'default': env.db('DATABASE_URL')
     }
     DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 
 # Password validation
