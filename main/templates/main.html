@@ -1,6 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<body style="background-color:#f5e9ee;">
+    <nav class="navbar bg-body-tertiary" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" >
+                <img src="https://cdn-icons-png.flaticon.com/512/3468/3468377.png?ga=GA1.1.640699963.1695798386" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                Fayya Salwa Azheva
+            </a>
+        <a href="{% url 'main:logout' %}" >
+            <button  style="background-color:#f5e9eeed;">
+                logout
+            </button>
+        </a>
+          
+        </div>
+    </nav>
     <h1>Shopping List Page</h1>
 
     <h5>Name:</h5>
@@ -26,6 +41,18 @@
                 <td>{{product.price}}</td>
                 <td>{{product.description}}</td>
                 <td>{{product.date_added}}</td>
+                <td>
+                    <a href="{% url 'main:edit_product' product.pk %}">
+                        <button>
+                            Edit
+                        </button>
+                    </a>
+                    <a href="{% url 'main:delete_product' product.pk %}">
+                        <button>
+                            Delete
+                        </button>
+                    </a>
+                </td>
             </tr>
         {% endfor %}
     </table>
