@@ -22,6 +22,7 @@ from main.views import show_main, create_product, show_xml, show_json, show_xml_
 urlpatterns = [
     path('', include('main.urls')),
     path('admin/', admin.site.urls),
+    path('auth/', include('authentication.urls')),
 ]
 
 # Berkas urls.py pada proyek bertanggung jawab untuk mengatur rute URL tingkat proyek.
